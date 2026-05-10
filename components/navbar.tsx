@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -18,8 +19,8 @@ export function Navbar() {
       >
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <span className="inline-flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border-2 border-[#1a6b3a] bg-[#e6f4ea] shadow-[0_4px_14px_rgba(26,107,58,0.18)]">
-            <span className="text-xl font-extrabold leading-none text-[#1a6b3a]">SH</span>
+          <span className="inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-[#1a6b3a] bg-[#e6f4ea] shadow-[0_4px_14px_rgba(26,107,58,0.18)]">
+            <Image src={site.logo} alt={`${site.name} logo`} width={64} height={64} className="h-full w-full object-cover" priority />
           </span>
           <div className="hidden sm:block">
             <span className="block text-base font-extrabold leading-tight text-[#0f2318] lg:text-lg">

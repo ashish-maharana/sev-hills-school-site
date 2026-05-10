@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerLinks, site, socialLinks } from "@/data/site";
 
 type SocialPlatform = (typeof socialLinks)[number]["platform"];
@@ -53,8 +54,8 @@ export function Footer() {
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         {/* School info */}
         <section>
-          <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-white/15 text-xl font-extrabold text-white">
-            SH
+          <div className="mb-4 inline-flex h-16 w-16 items-center justify-center overflow-hidden rounded-full border-2 border-white/30 bg-white/15">
+            <Image src={site.logo} alt={`${site.name} logo`} width={64} height={64} className="h-full w-full object-cover" />
           </div>
           <h2 className="text-xl font-semibold text-white">{site.name}</h2>
           <p className="mt-3 text-sm font-medium leading-7 text-white/75">{site.address}</p>

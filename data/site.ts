@@ -7,7 +7,7 @@ export const site: SiteConfig = {
   address: "Mona Nagar, Mansarovar, Dindoli, Surat, Gujarat - 394210",
   email: "sevenhillsps2017@gmail.com",
   phones: ["+91 97261 44777", "+91 97262 44777"],
-  logo: "/logo.png",
+  logo: "/images/common/seven-hills-logo.png",
 };
 
 export const navigation: NavigationItem[] = [
