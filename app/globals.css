@@ -1,0 +1,228 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f0f9ff;
+  --fg: #0f2318;
+  --surface: #ffffff;
+  --surface-muted: #e6f4ea;
+  --green: #1a6b3a;
+  --green-light: #2d9653;
+  --amber: #f59e0b;
+  --amber-light: #fbbf24;
+  --sky: #38bdf8;
+  --coral: #f97316;
+  --lavender: #a78bfa;
+  --ink: #0f2318;
+  --ink-muted: #3d5c47;
+}
+
+@theme inline {
+  --font-sans: var(--font-body);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-padding-top: 112px;
+}
+
+body {
+  color: var(--fg);
+  font-family: var(--font-body), sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(60rem 40rem at 5% 12%, rgba(26, 107, 58, 0.10), transparent 65%),
+    radial-gradient(55rem 38rem at 92% 18%, rgba(56, 189, 248, 0.13), transparent 65%),
+    radial-gradient(52rem 36rem at 88% 70%, rgba(245, 158, 11, 0.10), transparent 65%),
+    radial-gradient(48rem 34rem at 8% 80%, rgba(169, 139, 250, 0.09), transparent 65%),
+    radial-gradient(circle, rgba(26, 107, 58, 0.05) 1.5px, transparent 1.8px),
+    radial-gradient(circle, rgba(245, 158, 11, 0.04) 1.2px, transparent 1.5px);
+  background-position:
+    center top,
+    center top,
+    center top,
+    center top,
+    0 0,
+    20px 20px;
+  background-repeat:
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    repeat,
+    repeat;
+  background-size:
+    auto,
+    auto,
+    auto,
+    auto,
+    40px 40px,
+    40px 40px;
+  background-attachment: fixed;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), sans-serif;
+}
+
+.page-grid {
+  background: transparent;
+}
+
+/* Leaf-pattern doodle background */
+.doodle-bg {
+  background-image:
+    radial-gradient(circle at 18px 18px, rgba(26, 107, 58, 0.07) 2.5px, transparent 3px),
+    linear-gradient(135deg, rgba(56, 189, 248, 0.07) 10px, transparent 10px),
+    linear-gradient(45deg, rgba(245, 158, 11, 0.12) 10px, transparent 10px);
+  background-size: 48px 48px, 96px 96px, 96px 96px;
+}
+
+/* Hero overlay: subtle grid + diagonal */
+.hero-grid-overlay {
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.14) 1.5px, transparent 1.5px),
+    linear-gradient(135deg, rgba(245, 158, 11, 0.10), transparent 50%);
+  background-size: 28px 28px, 100% 100%;
+  opacity: 0.7;
+}
+
+/* Diagonal clip bottom for hero */
+.hero-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.section-wrap {
+  margin-top: 4.5rem;
+}
+
+/* Primary button — amber gradient */
+.btn-primary {
+  @apply relative isolate inline-flex items-center justify-center rounded-xl px-6 py-2.5 text-sm font-extrabold text-[#0f2318] transition hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a6b3a] focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  background: linear-gradient(135deg, var(--amber), var(--amber-light));
+  box-shadow: 0 10px 24px rgba(245, 158, 11, 0.30);
+  animation: btnPulse 2.4s ease-in-out infinite;
+}
+
+/* Secondary button — green outline */
+.btn-secondary {
+  @apply relative isolate inline-flex items-center justify-center rounded-xl border-2 border-[#1a6b3a] bg-white px-6 py-2.5 text-sm font-extrabold text-[#1a6b3a] transition hover:-translate-y-0.5 hover:bg-[#e6f4ea] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a6b3a] focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  box-shadow: 0 6px 0 rgba(26, 107, 58, 0.12);
+  animation: btnPulse 2.4s ease-in-out infinite;
+}
+
+/* Glass panel — teal-tinted */
+.glass-panel {
+  @apply rounded-[1.75rem] border-2 border-white bg-white/95 backdrop-blur-sm;
+  box-shadow: 0 18px 48px rgba(26, 107, 58, 0.09);
+}
+
+/* Play card — with green left accent */
+.play-card {
+  @apply relative overflow-hidden rounded-[1.5rem] border-2 border-white bg-white p-6;
+  box-shadow: 0 16px 40px rgba(15, 35, 24, 0.07);
+  border-left: 4px solid var(--green);
+}
+
+/* Sticker — rounded rectangle */
+.sticker {
+  @apply inline-flex items-center rounded-lg px-3 py-1 text-xs font-extrabold;
+  width: fit-content;
+  max-width: 100%;
+  color: var(--ink);
+  box-shadow: 0 6px 18px rgba(15, 35, 24, 0.08);
+}
+
+/* Wave divider — replaces beam-divider */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+/* Legacy beam-divider alias kept for compatibility but restyled */
+.beam-divider {
+  height: 6px;
+  width: 100%;
+  border-radius: 999px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--green) 0 38px,
+    var(--amber) 38px 76px,
+    var(--sky) 76px 114px,
+    var(--coral) 114px 152px,
+    var(--lavender) 152px 190px
+  );
+}
+
+/* Stat card shimmer */
+.stat-holo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 14% 18%, rgba(245, 158, 11, 0.22), transparent 34%),
+    radial-gradient(circle at 90% 82%, rgba(56, 189, 248, 0.14), transparent 36%);
+  pointer-events: none;
+}
+
+/* Signal / quote card */
+.signal-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 8% 18%, rgba(245, 158, 11, 0.28), transparent 30%),
+    radial-gradient(circle at 92% 80%, rgba(56, 189, 248, 0.14), transparent 35%);
+  pointer-events: none;
+}
+
+.signal-card::after {
+  content: "";
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  bottom: 22%;
+  height: 70px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(26, 107, 58, 0.10) 0px,
+    rgba(26, 107, 58, 0.10) 2px,
+    transparent 2px,
+    transparent 14px
+  );
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  opacity: 0.30;
+  pointer-events: none;
+}
+
+@keyframes btnPulse {
+  0% {
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.30), 0 0 0 0 rgba(26, 107, 58, 0.20);
+  }
+  50% {
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.24), 0 0 0 6px rgba(26, 107, 58, 0.05);
+  }
+  100% {
+    box-shadow: 0 10px 24px rgba(245, 158, 11, 0.30), 0 0 0 0 rgba(26, 107, 58, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary {
+    animation: none !important;
+  }
+}
